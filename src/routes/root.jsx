@@ -1,4 +1,10 @@
-import { Outlet, NavLink, useLoaderData, Form } from 'react-router-dom';
+import {
+	Outlet,
+	NavLink,
+	useLoaderData,
+	Form,
+	useNavigation,
+} from 'react-router-dom';
 import { getContacts, createContact } from '../contacts';
 
 export const loader = async () => {
@@ -13,6 +19,7 @@ export const action = async () => {
 
 export default function Root() {
 	const { contacts } = useLoaderData();
+	const navigation = useNavigation();
 	return (
 		<>
 			<div id='sidebar'>
@@ -33,35 +40,40 @@ export default function Root() {
 						<button type='submit'>New</button>
 					</Form>
 				</div>
-				{contacts.length ? (
-					<ul>
-						{contacts.map((contact) => (
-							<li key={contact.id}>
-								<NavLink
-									to={`contacts/${contact.id}`}
-									className={({ isActive, isPending }) =>
-										isActive ? 'active' : isPending ? 'peding' : ''
-									}
-								>
-									{contact.first || contact.last ? (
-										<>
-											{contact.first} {contact.last}
-										</>
-									) : (
-										<i>No Name</i>
-									)}{' '}
-									{contact.favorite && <span>★</span>}
-								</NavLink>
-							</li>
-						))}
-					</ul>
-				) : (
-					<p>
-						<i>No contacts</i>
-					</p>
-				)}
+				<nav>
+					{contacts.length ? (
+						<ul>
+							{contacts.map((contact) => (
+								<li key={contact.id}>
+									<NavLink
+										to={`contacts/${contact.id}`}
+										className={({ isActive, isPending }) =>
+											isActive ? 'active' : isPending ? 'peding' : ''
+										}
+									>
+										{contact.first || contact.last ? (
+											<>
+												{contact.first} {contact.last}
+											</>
+										) : (
+											<i>No Name</i>
+										)}{' '}
+										{contact.favorite && <span>★</span>}
+									</NavLink>
+								</li>
+							))}
+						</ul>
+					) : (
+						<p>
+							<i>No contacts</i>
+						</p>
+					)}
+				</nav>
 			</div>
-			<div id='detail'>
+			<div
+				id='detail'
+				className={navigation.state === 'loading' ? 'loading' : ''}
+			>
 				<Outlet />
 			</div>
 		</>
