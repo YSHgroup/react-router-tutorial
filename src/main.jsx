@@ -9,7 +9,7 @@ import Root, {
 	loader as rootLoader,
 	action as rootAction,
 } from './routes/root';
-import { loader as contactLoader } from './routes/contact';
+import { loader as contactLoader, action as contactAction } from './routes/contact';
 import './index.css';
 import EditContact from './routes/edit';
 import { action as editAction } from './routes/edit';
@@ -25,10 +25,11 @@ const router = createBrowserRouter([
 		action: rootAction,
 		children: [
 			{ index: true, element: <Index /> },
-			{
+			{	
 				path: 'contacts/:contactId',
 				element: <Contact />,
 				loader: contactLoader,
+				action: contactAction
 			},
 			{
 				path: 'contacts/:contactId/edit',
