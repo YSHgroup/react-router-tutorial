@@ -1,3 +1,18 @@
+
+
+<p align="center">
+  <a href=https://reactrouter.com/en/main" target="_blank" rel="noopener noreferrer">
+    <img width="480" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*ipjusn5ilG-U4ZQPxIjFmw.png" alt="React Router Dom">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-router-dom">
+    <img src="https://badgen.net/npm/v/react-router-dom" alt="pacote da npm">
+  </a>
+</p>
+<br/>
+
 # React Router Tutorial
 
 This project is a comprehensive tutorial for `react-router-dom`, designed to teach you how to manage navigation and routing in React applications. Created using the latest versions of React and React Router, this tutorial covers everything from basic to advanced routing concepts.
@@ -92,3 +107,5 @@ Feel free to customize the README to match the specific details and features of 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+- ![logo](https://miro.medium.com/v2/resize:fit:720/format:webp/1*ipjusn5ilG-U4ZQPxIjFmw.png)
